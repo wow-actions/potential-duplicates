@@ -23,13 +23,17 @@ export namespace Action {
       for (const issue of issues) {
         const accuracy = Algo.compare(issue.title, title)
 
-        core.debug(`${issue.title} ~ ${title} = ${accuracy}`)
+        core.debug(
+          `${issue.title} ~ ${title} = ${parseFloat(
+            (accuracy * 100).toFixed(2),
+          )}%`,
+        )
 
         if (accuracy >= threshold) {
           duplicates.push({
             number: issue.number,
             title: issue.title,
-            accuracy: Math.round(accuracy * 100),
+            accuracy: parseFloat((accuracy * 100).toFixed(2)),
           })
         }
       }

@@ -4,7 +4,6 @@
 
 ## Usage
 
-
 Create `.github/workflows/potential-duplicates.yml` in the default branch:
 
 ```yaml
@@ -23,12 +22,11 @@ jobs:
           label: potential-duplicate
           # Get issues with state to compare. Supported state: 'all', 'closed', 'open'.
           state: all
-          # If similarity is higher than this threshold, issue will be marked as duplicate.
+          # If similarity is higher than this threshold([0,1]), issue will be marked as duplicate.
           threshold: 0.6
           # Comment to post when potential duplicates are detected.
           comment: >
-            Potential duplicates:
-            {{#issues}}
+            Potential duplicates: {{#issues}}
               - [#{{ number }}] {{ title }} ({{ accuracy }}%)
             {{/issues}}
 ```
