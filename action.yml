@@ -10,7 +10,7 @@ inputs:
     default: potential-duplicate
     required: false
   state:
-    description: `Get issues with state to compare. Supported state: 'all', 'closed', 'open'`
+    description: "Get issues with state to compare. Supported state: 'all', 'closed', 'open'"
     default: all
     required: false
   threshold:
@@ -20,10 +20,10 @@ inputs:
   comment:
     description: Comment to post when potential duplicates are detected.
     default: >
-      Potential duplicates:
-      {{#issues}}
+      Potential duplicates: {{#issues}}
         - [#{{ number }}] {{ title }} ({{ accuracy }}%)
       {{/issues}}
+
     required: false
 runs:
   using: node12
