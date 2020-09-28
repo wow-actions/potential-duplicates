@@ -24,6 +24,10 @@ inputs:
         - [#{{ number }}] {{ title }} ({{ accuracy }}%)
       {{/issues}}
 
+
+    required: false
+  reactions:
+    description: Reactions to be add to comment when potential duplicates are detected.
     required: false
 runs:
   using: node12

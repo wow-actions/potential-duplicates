@@ -24,6 +24,9 @@ jobs:
           state: all
           # If similarity is higher than this threshold([0,1]), issue will be marked as duplicate.
           threshold: 0.6
+          # Reactions to be add to comment when potential duplicates are detected.
+          # Available reactions: "-1", "+1", "confused", "laugh", "heart", "hooray", "rocket", "eyes"
+          reactions: 'eyes, confused'
           # Comment to post when potential duplicates are detected.
           comment: >
             Potential duplicates: {{#issues}}
