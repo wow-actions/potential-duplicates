@@ -12,7 +12,7 @@ on:
   issues:
     types: [opened, edited]
 jobs:
-  test:
+  run:
     runs-on: ubuntu-latest
     steps:
       - uses: bubkoo/label-commands@v1

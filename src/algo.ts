@@ -118,7 +118,7 @@ export namespace Algo {
     let total = 0
 
     if (wordsA.length > wordsB.length) {
-      ;[wordsA, wordsB] = [wordsB, wordsA]
+      [wordsA, wordsB] = [wordsB, wordsA]
     }
 
     for (const wordA of wordsA) {
