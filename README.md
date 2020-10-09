@@ -29,7 +29,7 @@ jobs:
           reactions: 'eyes, confused'
           # Comment to post when potential duplicates are detected.
           comment: >
-            Potential duplicates: {{#issues}}
+            Potential duplicates:  {{#issues}}
               - [#{{ number }}] {{ title }} ({{ accuracy }}%)
             {{/issues}}
 ```
