@@ -18,6 +18,10 @@ jobs:
       - uses: bubkoo/potential-duplicates@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Issue title filter(space separate string) work with
+          # anymatch https://www.npmjs.com/package/anymatch.
+          # Any matched issue will stop detection immediately.
+          filter: ''
           # Label to set, when potential duplicates are detected.
           label: potential-duplicate
           # Get issues with state to compare. Supported state: 'all', 'closed', 'open'.
@@ -29,8 +33,7 @@ jobs:
           reactions: 'eyes, confused'
           # Comment to post when potential duplicates are detected.
           comment: >
-            Potential duplicates:  
-            {{#issues}}
+            Potential duplicates: {{#issues}}
               - [#{{ number }}] {{ title }} ({{ accuracy }}%)
             {{/issues}}
 ```

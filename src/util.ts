@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+import anymatch from 'anymatch'
 
 export namespace Util {
   export function getOctokit() {
@@ -21,5 +22,10 @@ export namespace Util {
       return actions === payload.action
     }
     return false
+  }
+
+  export function isValidTitle(title: string) {
+    const filter = core.getInput('filter')
+    return !filter || !anymatch(filter.split(/\s+/), title)
   }
 }

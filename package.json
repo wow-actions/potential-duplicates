@@ -1,7 +1,7 @@
 {
   "name": "potential-duplicates",
   "description": "A Github Action to search for potential issue duplicates using Damerau–Levenshtein algorithm.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "repository": "https://github.com/bubkoo/potential-duplicates",
   "author": "bubkoo <bubkoo.wy@gmail.com>",
@@ -39,14 +39,15 @@
   "dependencies": {
     "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
+    "anymatch": "^3.1.1",
     "js-yaml": "^3.14.0",
     "mustache": "^4.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@types/mustache": "^4.0.1",
     "@types/js-yaml": "^3.12.5",
+    "@types/mustache": "^4.0.1",
     "@types/node": "^14.0.27",
     "@typescript-eslint/eslint-plugin": "^4.1.1",
     "@typescript-eslint/parser": "^4.1.1",

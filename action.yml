@@ -5,6 +5,9 @@ inputs:
   GITHUB_TOKEN:
     description: Your GitHub token for authentication.
     required: true
+  filter:
+    description: Filter issues by title.
+    required: false
   label:
     description: Label to set, when potential duplicates are detected.
     default: potential-duplicate
@@ -19,12 +22,10 @@ inputs:
     required: false
   comment:
     description: Comment to post when potential duplicates are detected.
-    default: >
+    default: |
       Potential duplicates: {{#issues}}
         - [#{{ number }}] {{ title }} ({{ accuracy }}%)
       {{/issues}}
-
-
     required: false
   reactions:
     description: Reactions to be add to comment when potential duplicates are detected.

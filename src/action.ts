@@ -9,7 +9,11 @@ export namespace Action {
   export async function run() {
     const context = github.context
     const payload = context.payload.issue
-    if (payload && Util.isValidEvent('issues', ['opened', 'edited'])) {
+    if (
+      payload &&
+      Util.isValidEvent('issues', ['opened', 'edited']) &&
+      Util.isValidTitle(payload.title)
+    ) {
       const octokit = Util.getOctokit()
       const duplicates = []
       const response = await octokit.issues.listForRepo({
@@ -17,8 +21,8 @@ export namespace Action {
         state: core.getInput('state') as 'all' | 'open' | 'closed',
       })
 
-      const issues = response.data.filter((i) => i.number !== payload.number)
       const title = payload.title
+      const issues = response.data.filter((i) => i.number !== payload.number)
       const threshold = parseFloat(core.getInput('threshold'))
 
       for (const issue of issues) {
