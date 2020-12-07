@@ -26,6 +26,14 @@ export namespace Util {
 
   export function isValidTitle(title: string) {
     const filter = core.getInput('filter')
-    return !filter || !anymatch(filter.split(/\s+/), title)
+    if (filter) {
+      const filters = filter
+        .split(/\n/)
+        .map((str) => str.trim())
+        .filter((str) => str.length > 0)
+      core.info(`filters: ${JSON.stringify(filters, null, 2)}`)
+      return !anymatch(filters, title)
+    }
+    return true
   }
 }

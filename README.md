@@ -18,9 +18,9 @@ jobs:
       - uses: bubkoo/potential-duplicates@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Issue title filter(space separate string) work with
-          # anymatch https://www.npmjs.com/package/anymatch.
+          # Issue title filter work with anymatch https://www.npmjs.com/package/anymatch.
           # Any matched issue will stop detection immediately.
+          # You can specify multi filters in each line.
           filter: ''
           # Label to set, when potential duplicates are detected.
           label: potential-duplicate
