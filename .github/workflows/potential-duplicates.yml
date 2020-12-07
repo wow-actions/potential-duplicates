@@ -16,4 +16,7 @@ jobs:
       - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          filter: 'Request ** icon'
+          filter: |
+            Request ** icon
+            Add ** icon
+            ** icon **
