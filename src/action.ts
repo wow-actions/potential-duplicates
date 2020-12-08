@@ -26,7 +26,10 @@ export namespace Action {
       const threshold = parseFloat(core.getInput('threshold'))
 
       for (const issue of issues) {
-        const accuracy = Algo.compare(issue.title, title)
+        const accuracy = Algo.compare(
+          Util.formatTitle(issue.title),
+          Util.formatTitle(title),
+        )
 
         core.debug(
           `${issue.title} ~ ${title} = ${parseFloat(

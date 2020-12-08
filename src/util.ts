@@ -36,4 +36,16 @@ export namespace Util {
     }
     return true
   }
+
+  export function formatTitle(title: string) {
+    const exclude = core.getInput('exclude')
+    if (exclude) {
+      return exclude
+        .split(/[\s\n]+/)
+        .map((keyworld) => keyworld.trim())
+        .filter((keyworld) => keyworld.length > 0)
+        .reduce((memo, keyworld) => memo.replace(keyworld, ' '), title)
+    }
+    return title
+  }
 }
