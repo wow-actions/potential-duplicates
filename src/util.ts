@@ -44,7 +44,8 @@ export namespace Util {
         .split(/[\s\n]+/)
         .map((keyworld) => keyworld.trim())
         .filter((keyworld) => keyworld.length > 0)
-        .reduce((memo, keyworld) => memo.replace(keyworld, ' '), title)
+        .reduce((memo, keyworld) => memo.replace(keyworld, ''), title)
+        .replace(/\s+/, ' ')
     }
     return title
   }
