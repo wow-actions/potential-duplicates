@@ -46,6 +46,7 @@ export namespace Util {
         .filter((keyworld) => keyworld.length > 0)
         .reduce((memo, keyworld) => memo.replace(keyworld, ''), title)
         .replace(/\s+/, ' ')
+        .trim()
     }
     return title
   }
