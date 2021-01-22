@@ -32,7 +32,7 @@ export namespace Util {
         .map((str) => str.trim())
         .filter((str) => str.length > 0)
       core.info(`filters: ${JSON.stringify(filters, null, 2)}`)
-      return !anymatch(filters, title)
+      return !anymatch(filters, title, { nocase: true } as any)
     }
     return true
   }
