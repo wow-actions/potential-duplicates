@@ -22,7 +22,7 @@ jobs:
           # Any matched issue will stop detection immediately.
           # You can specify multi filters in each line.
           filter: ''
-          # Exclude keyworlds in title before detecting.
+          # Exclude keywords in title before detecting.
           exclude: ''
           # Label to set, when potential duplicates are detected.
           label: potential-duplicate

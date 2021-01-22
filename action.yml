@@ -9,7 +9,7 @@ inputs:
     description: Filter issues by title.
     required: false
   exclude:
-    description: Exclude keyworlds in title before detecting.
+    description: Exclude keywords in title before detecting.
     required: false
   label:
     description: Label to set, when potential duplicates are detected.

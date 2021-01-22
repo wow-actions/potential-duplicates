@@ -42,9 +42,9 @@ export namespace Util {
     if (exclude) {
       return exclude
         .split(/[\s\n]+/)
-        .map((keyworld) => keyworld.trim())
-        .filter((keyworld) => keyworld.length > 0)
-        .reduce((memo, keyworld) => memo.replace(keyworld, ''), title)
+        .map((keyword) => keyword.trim())
+        .filter((keyword) => keyword.length > 0)
+        .reduce((memo, keyword) => memo.replace(keyword, ''), title)
         .replace(/\s+/, ' ')
         .trim()
     }
