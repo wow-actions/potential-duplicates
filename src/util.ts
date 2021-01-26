@@ -44,7 +44,10 @@ export namespace Util {
         .split(/[\s\n]+/)
         .map((keyword) => keyword.trim())
         .filter((keyword) => keyword.length > 0)
-        .reduce((memo, keyword) => memo.replace(keyword, ''), title)
+        .reduce(
+          (memo, keyword) => memo.replace(new RegExp(keyword, 'igm'), ''),
+          title,
+        )
         .replace(/\s+/, ' ')
         .trim()
     }

@@ -1,7 +1,7 @@
 {
   "name": "potential-duplicates",
   "description": "A Github Action to search for potential issue duplicates using Damerau–Levenshtein algorithm.",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "repository": "https://github.com/bubkoo/potential-duplicates",
   "author": "bubkoo <bubkoo.wy@gmail.com>",
