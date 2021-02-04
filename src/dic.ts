@@ -28,7 +28,7 @@ export namespace Dic {
     'outo',
   ]
 
-  export const punctuation = ['! ', ', ', ' - ', ' – ', '... ', '.. ', '. ']
+  export const punctuation = ['! ', ', ', ' - ', ' – ', '... ', '.. ', '. ', ': ']
 
   export const synonyms = {
     app: ['aplication', 'application', 'client'],
