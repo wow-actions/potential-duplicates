@@ -7,7 +7,7 @@ import { Reaction } from './reaction'
 
 export namespace Action {
   export async function run() {
-    const context = github.context
+    const { context } = github
     const payload = context.payload.issue
     if (
       payload &&
@@ -16,15 +16,16 @@ export namespace Action {
     ) {
       const octokit = Util.getOctokit()
       const duplicates = []
-      const response = await octokit.issues.listForRepo({
+      const response = await octokit.rest.issues.listForRepo({
         ...context.repo,
         state: core.getInput('state') as 'all' | 'open' | 'closed',
       })
 
-      const title = payload.title
+      const { title } = payload
       const issues = response.data.filter((i) => i.number !== payload.number)
       const threshold = parseFloat(core.getInput('threshold'))
 
+      // eslint-disable-next-line no-restricted-syntax
       for (const issue of issues) {
         const accuracy = Algo.compare(
           Util.formatTitle(issue.title),
@@ -49,7 +50,7 @@ export namespace Action {
       if (duplicates.length) {
         const label = core.getInput('label')
         if (label) {
-          await octokit.issues.addLabels({
+          await octokit.rest.issues.addLabels({
             ...context.repo,
             issue_number: payload.number,
             labels: [label],
@@ -63,7 +64,7 @@ export namespace Action {
             issues: duplicates,
           })
 
-          const { data } = await octokit.issues.createComment({
+          const { data } = await octokit.rest.issues.createComment({
             ...context.repo,
             body,
             issue_number: payload.number,

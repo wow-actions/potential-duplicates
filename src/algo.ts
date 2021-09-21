@@ -9,10 +9,12 @@ export namespace Algo {
   function prepare(phrase: string) {
     let ret = phrase.toLowerCase()
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const punct of Dic.punctuation) {
       ret = ret.replace(new RegExp(`\\${punct}`, 'g'), ' ')
     }
 
+    // eslint-disable-next-line
     for (const word in Dic.synonyms) {
       ret = ret.replace(
         new RegExp((Dic.synonyms as any)[word].join('|'), 'gi'),
@@ -20,6 +22,7 @@ export namespace Algo {
       )
     }
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const exclude of Dic.excludes) {
       ret = ret.replace(new RegExp(`\\b${exclude}\\s\\b`, 'g'), '')
     }
@@ -118,11 +121,13 @@ export namespace Algo {
     let total = 0
 
     if (wordsA.length > wordsB.length) {
-      [wordsA, wordsB] = [wordsB, wordsA]
+      ;[wordsA, wordsB] = [wordsB, wordsA]
     }
 
+    // eslint-disable-next-line
     for (const wordA of wordsA) {
       const temp = []
+      // eslint-disable-next-line
       for (const wordB of wordsB) {
         temp.push(similarity(wordA, wordB))
       }
