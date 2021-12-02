@@ -1,7 +1,7 @@
 {
   "name": "potential-duplicates",
   "description": "Search for potential issue duplicates using Damerau–Levenshtein algorithm.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "files": [
     "dist",
