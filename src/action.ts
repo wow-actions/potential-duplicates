@@ -22,7 +22,9 @@ export namespace Action {
       })
 
       const { title } = payload
-      const issues = response.data.filter((i) => i.number !== payload.number)
+      const issues = response.data.filter(
+        (i) => i.number !== payload.number && i.pull_request === undefined,
+      )
       const threshold = parseFloat(core.getInput('threshold'))
 
       // eslint-disable-next-line no-restricted-syntax
