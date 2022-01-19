@@ -27,11 +27,17 @@ export namespace Action {
       )
       const threshold = parseFloat(core.getInput('threshold'))
 
+      const formattedTitle = Util.formatTitle(title)
+      if (formattedTitle === '') {
+        core.info(`Issue title "${title}" is empty after excluding words`)
+        return
+      }
+
       // eslint-disable-next-line no-restricted-syntax
       for (const issue of issues) {
         const accuracy = Algo.compare(
           Util.formatTitle(issue.title),
-          Util.formatTitle(title),
+          formattedTitle,
         )
 
         core.debug(
