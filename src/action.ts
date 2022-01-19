@@ -29,7 +29,7 @@ export namespace Action {
 
       const formattedTitle = Util.formatTitle(title)
       if (formattedTitle === '') {
-        core.info(`Issue title "${title}" is empty after excluding words`)
+        core.info(`Issue title "${title}" is empty after excluding keywords`)
         return
       }
 
