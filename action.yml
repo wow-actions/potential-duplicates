@@ -34,7 +34,7 @@ inputs:
     description: Reactions to be add to comment when potential duplicates are detected.
     required: false
 runs:
-  using: node12
+  using: node16
   main: dist/index.js
 branding:
   icon: type

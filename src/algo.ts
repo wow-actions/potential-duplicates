@@ -83,9 +83,9 @@ export namespace Algo {
    * Compares two strings and returns how similar they are. The result is a
    * float in interval [0.0; 1.0].
    */
-  function similarity(i: string, j: string) {
-    const length = Math.max(i.length, j.length)
-    return length === 0 ? 1.0 : (length - distance(i, j)) / length
+  function similarity(a: string, b: string) {
+    const length = Math.max(a.length, b.length)
+    return length === 0 ? 1.0 : (length - distance(a, b)) / length
   }
 
   // How many points remove per missing word (see `compare()`):
