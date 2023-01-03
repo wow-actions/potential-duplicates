@@ -9,11 +9,7 @@ export namespace Action {
   export async function run() {
     const { context } = github
     const payload = context.payload.issue
-    if (
-      payload &&
-      Util.isValidEvent('issues', ['opened', 'edited']) &&
-      Util.isValidTitle(payload.title)
-    ) {
+    if (payload && Util.isValidTitle(payload.title)) {
       const octokit = Util.getOctokit()
       const duplicates = []
       const response = await octokit.rest.issues.listForRepo({

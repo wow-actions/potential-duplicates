@@ -8,22 +8,6 @@ export namespace Util {
     return github.getOctokit(token)
   }
 
-  export function isValidEvent(event: string, actions?: string | string[]) {
-    const { context } = github
-    const { payload } = context
-    if (event === context.eventName) {
-      if (actions == null) {
-        return true
-      }
-      if (Array.isArray(actions)) {
-        return actions.some((action) => action === payload.action)
-      }
-
-      return actions === payload.action
-    }
-    return false
-  }
-
   export function isValidTitle(title: string) {
     const filter = core.getInput('filter')
     if (filter) {
